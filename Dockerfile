@@ -14,8 +14,8 @@ RUN ./configure --prefix="" --datarootdir="/usr/share/" --exec-prefix="/usr/" &&
     make && \
     make install 
 
+# Final Image 
 FROM debian:stable 
-
 # copy from build stage 
 COPY --from=builder /usr/share/doc/tinyproxy/ /usr/share/doc/tinyproxy
 COPY --from=builder /usr/share/man/man8/tinyproxy.8 /usr/share/man/man8/
@@ -25,6 +25,7 @@ COPY --from=builder /usr/share/tinyproxy/ /usr/share/tinyproxy
 COPY --from=builder /usr/bin/tinyproxy /usr/bin/
 
 # copy from build directory 
+COPY stats-json.html /usr/share/tinyproxy/stats-json.html
 COPY tinyproxy.conf /etc/tinyproxy/
 COPY entrypoint.sh / 
 
