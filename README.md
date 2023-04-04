@@ -9,7 +9,9 @@ with docker a bit more.
 I wanted to achieve the following goals: 
 
 [x] learn how to use multi-stage docker builds 
+
 [x] how I can change the behaviour with environment variables (-e) 
+
 [x] generate a tinyproxy image that I can use for myself 
 
 **Warning** I dont recommend anyone to use this repo or the image. Even thought it will work and will get improved over time, 
