@@ -3,12 +3,12 @@ FROM debian:stable AS builder
 RUN apt-get update && \
     apt-get install -y git build-essential bzip2 autoconf make 
 
-ADD https://github.com/tinyproxy/tinyproxy/releases/download/1.11.1/tinyproxy-1.11.1.tar.bz2 /usr/local/src/tinyproxy-1.11.1.tar.bz2
+ADD https://github.com/tinyproxy/tinyproxy/releases/download/1.11.2/tinyproxy-1.11.2.tar.bz2 /usr/local/src/tinyproxy-1.11.2.tar.bz2
 RUN mkdir /usr/local/src/tinyproxy && \ 
-    tar xfvj /usr/local/src/tinyproxy-1.11.1.tar.bz2 -C /usr/local/src/ 
-RUN ls -al /usr/local/src/tinyproxy-1.11.1
+    tar xfvj /usr/local/src/tinyproxy-1.11.2.tar.bz2 -C /usr/local/src/ 
+RUN ls -al /usr/local/src/tinyproxy-1.11.2
 
-WORKDIR /usr/local/src/tinyproxy-1.11.1
+WORKDIR /usr/local/src/tinyproxy-1.11.2
 
 RUN ./configure --prefix="" --datarootdir="/usr/share/" --exec-prefix="/usr/" && \
     make && \
